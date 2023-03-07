@@ -5,10 +5,10 @@ import { RiWhatsappLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 function Footer() {
   return (
-    <footer className='w-full bg-footer-bg py-10 border-t border-t-footer-bg-border'>
+    <footer className='w-full bg-footer-bg py-6 sm:py-10 border-t border-t-footer-bg-border'>
       <div className='container mx-auto w-full flex flex-col space-y-6'>
         <div className='flex flex-col sm:flex-row justify-center sm:justify-between w-full'>
-        <span className='w-full flex justify-center'><Link to="/"><img src={Logo} alt="psikologbul.io logo" className='h-12 w-40'/></Link></span>
+        <span className='flex justify-center sm:block cursor-pointer'><Link to="/"><img src={Logo} alt="psikologbul.io logo" className='h-12 w-40'/></Link></span>
         <div className='flex flex-row justify-center place-items-center space-x-5'>
           <BsTwitter className='h-5 w-5'/>
           <RiWhatsappLine className='h-5 w-5'/>
