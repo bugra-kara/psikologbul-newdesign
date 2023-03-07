@@ -7,7 +7,7 @@ import {IoMdPaperPlane} from 'react-icons/io'
 import {BsPhone} from 'react-icons/bs'
 function List() {
   return (
-    <div className='px-4 pt-4 pb-8'>
+    <div className='px-4 pt-8 sm:pt-24 md:pt-12 lg:pt-8 xl:pt-4 pb-8'>
       <div className='container mx-auto w-full flex flex-col'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
           <div className='bg-white rounded-md shadow-md'>
