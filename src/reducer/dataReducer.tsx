@@ -3,10 +3,7 @@ import { HANDLE_CHANGE_CITY, HANDLE_CHANGE_CHECKBOX, HANDLE_CHANGE_LANG, HANDLE_
 
 const dataReducer = (state: initialStateInterface, action: actionType) => {
  if(action.type === HANDLE_CHANGE_CHECKBOX) {
-  if(action.payload.target.type === "checkbox") {
-   return {...state, [action.payload.target.name]: action.payload.checked}
-  }
-  return {...state}
+  return {...state, [action.payload.target.name]: action.payload.checked}
  }
  if(action.type === HANDLE_CHANGE_CITY) {
   return {...state, city: action.payload.label}
