@@ -1,8 +1,6 @@
-import React from 'react'
 import hbg from '../assets/images/web-head-bg.png'
 import { FilterWho, FilterCity, FilterStatus, FilterLang } from '.'
 function Filter() {
-  
   return (
     <>
     <div className='flex flex-col px-4 sm:px-0 relative'>
