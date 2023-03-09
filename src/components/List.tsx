@@ -82,13 +82,13 @@ function List(): JSX.Element {
                   <div className='flex flex-row space-x-1'>
                     {/* son index ise nokta koydurtma */}
                     {
-                    item.title !== null ? item.title!.map((e,index)=>{ return index !== item.title?.length ? <span>{e} •</span> : <span>{e}</span>}) : ""
+                    item.title !== null ? item.title!.map((e,index)=>{ return index < (item.title?.length! - 1) ? <span>{e} •</span> : <span>{e}</span>}) : ""
                     }
                   </div>
                 </div>
                 <hr className='border-dotted'/>
                 {
-                item.bilgi !== null
+                item.bilgi !== null || item.bilgi !== undefined || item.bilgi !== ""
                 ? <><div className='flex flex-col space-y-4'>
                   <span className='text-head font-semibold'>
                     Bilgi
@@ -106,7 +106,7 @@ function List(): JSX.Element {
                   </span>
                   <div className='flex flex-col space-y-3 pt-4 text-day'>
                     {
-                    item.name !== null
+                    item.name !== null && item.name !== undefined && item.name !== ""
                     ? <div className='flex flex-row space-x-2 place-items-center'>
                         <span className='flex justify-center place-items-center p-1.5 rounded-md bg-icon'>
                           <AiOutlineIdcard className='h-5 w-5' />
@@ -118,7 +118,7 @@ function List(): JSX.Element {
                     : ""
                     }
                     {
-                    item.location !== null
+                    item.location !== null && item.location !== undefined && item.location !== ""
                     ? <div className='flex flex-row space-x-2 place-items-center'>
                         <span className='flex justify-center place-items-center p-1.5 rounded-md bg-icon'>
                           <AiOutlineCompass className='h-5 w-5' />
@@ -130,7 +130,7 @@ function List(): JSX.Element {
                     : ""
                     }
                     {
-                    item.email !== null
+                    item.email !== null && item.email !== undefined && item.email !== ""
                     ? <div className='flex flex-row space-x-2 place-items-center'>
                         <span className='flex justify-center place-items-center p-1.5 rounded-md bg-icon'>
                           <IoMdPaperPlane className='h-5 w-5' />
@@ -142,7 +142,7 @@ function List(): JSX.Element {
                     : ""
                     }
                     {
-                    item.telefon !== null
+                    item.telefon !== null && item.telefon !== undefined && item.telefon !== ""
                     ? <div className='flex flex-row space-x-2 place-items-center'>
                         <span className='flex justify-center place-items-center p-1.5 rounded-md bg-icon'>
                           <BsPhone className='h-5 w-5' />
@@ -154,7 +154,7 @@ function List(): JSX.Element {
                     : ""
                     }
                     {
-                    item.instagram !== null
+                    item.instagram !== null && item.instagram !== undefined && item.instagram !== ""
                     ? <div className='flex flex-row space-x-2 place-items-center'>
                         <span className='flex justify-center place-items-center p-1.5 rounded-md bg-icon'>
                           <AiOutlineInstagram className='h-5 w-5' />
@@ -166,7 +166,7 @@ function List(): JSX.Element {
                     : ""
                     }
                     {
-                    item.website !== null
+                    item.website !== null && item.website !== undefined && item.website !== ""
                     ? <div className='flex flex-row space-x-2 place-items-center'>
                       <span className='flex justify-center place-items-center p-1.5 rounded-md bg-icon'>
                         <AiOutlineLink className='h-5 w-5' />
