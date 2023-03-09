@@ -1,5 +1,5 @@
 import { actionType, initialStateInterface } from "../components/Data.types";
-import { HANDLE_CHANGE_CITY, HANDLE_CHANGE_CHECKBOX, HANDLE_CHANGE_LANG, HANDLE_CHANGE_BYWHO} from "../utils/action";
+import { HANDLE_CHANGE_CITY, HANDLE_CHANGE_CHECKBOX, HANDLE_CHANGE_LANG, HANDLE_CHANGE_BYWHO, HANDLE_DATA} from "../utils/action";
 
 const dataReducer = (state: initialStateInterface, action: actionType) => {
  if(action.type === HANDLE_CHANGE_CHECKBOX) {
@@ -13,6 +13,9 @@ const dataReducer = (state: initialStateInterface, action: actionType) => {
  }
  if(action.type === HANDLE_CHANGE_BYWHO) {
   return {...state, byWho: action.payload}
+ }
+ if(action.type === HANDLE_DATA) {
+  return {...state, data: action.payload.user, selectedData: action.payload.user}
  }
  return {...state}
 }

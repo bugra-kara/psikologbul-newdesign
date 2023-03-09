@@ -8,32 +8,42 @@ export interface initialStateInterface {
  byWho: Array<string>
 }
 export type data = {
+ id: number,
  name: string,
- unvan: string,
- email: string,
- telefon: string,
+ cinsiyet: string | null,
+ unvan: string | null,
+ email: string | null,
+ telefon: string | null,
  cevrimici: boolean,
  yuzyuze: boolean,
- sehir: string,
- form: string,
- instagram: string,
- bilgi: string,
+ sehir: string | null,
+ form: string | null,
+ instagram: string | null,
+ bilgi: string | null,
  doluluk: number,
- status: number
+ title: Array<string> | null,
+ lang: string | null,
+ location: string | null,
+ website: string | null
 }
 export type selectedData = {
+ id: number
  name: string,
- unvan: string,
- email: string,
- telefon: string,
+ cinsiyet: string | null,
+ unvan: string | null,
+ email: string | null,
+ telefon: string | null,
  cevrimici: boolean,
  yuzyuze: boolean,
- sehir: string,
- form: string,
- instagram: string,
- bilgi: string,
+ sehir: string | null,
+ form: string | null,
+ instagram: string | null,
+ bilgi: string | null,
  doluluk: number,
- status: number
+ title: Array<string> | null,
+ lang: string | null,
+ location: string | null,
+ website: string | null
 }
 export const initialState: initialStateInterface = {
  data: [],
@@ -44,8 +54,8 @@ export const initialState: initialStateInterface = {
  lang: "Türkçe",
  byWho: [],
 }
-export type DataContextProviderProps = {
- children: React.ReactNode
+export interface DataContextProviderProps {
+ children: React.ReactNode | JSX.Element | JSX.Element[];
 }
 export type actionType = {
  type: string

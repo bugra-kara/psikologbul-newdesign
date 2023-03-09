@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Home, Contact, Cookies, Kvvk } from '../pages';
 import { Layout } from '../components';
+import { dataLoader } from '../services/index'
 
 export const router = createBrowserRouter([
  {
@@ -8,7 +9,8 @@ export const router = createBrowserRouter([
    children: [
      {
        index: true,
-       element:<Home/>
+       element:<Home/>,
+       loader: dataLoader
      },
      {
        path: "/iletisim",
