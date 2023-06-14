@@ -1,8 +1,7 @@
 import React, { useContext, useReducer, createContext, SyntheticEvent, PropsWithChildren } from 'react'
 import dataReducer from '../reducer/dataReducer'
-import { DataContextProviderProps, actionType, initialState, initialStateInterface, cityLang, data } from '../components/Data.types'
-import { HANDLE_CHANGE_BYWHO, HANDLE_CHANGE_CHECKBOX, HANDLE_CHANGE_CITY, HANDLE_CHANGE_LANG, HANDLE_DATA } from '../utils/action'
-import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
+import { actionType, initialState, initialStateInterface, cityLang, data } from '../components/Data.types'
+import { HANDLE_CHANGE, HANDLE_CHANGE_BYWHO, HANDLE_CHANGE_CHECKBOX, HANDLE_CHANGE_CITY, HANDLE_CHANGE_LANG, HANDLE_DATA } from '../utils/action'
 const DataContext = createContext<{
   state: initialStateInterface;
   dispatch: (e: actionType) => void;
@@ -21,20 +20,24 @@ const DataContext = createContext<{
   handleData: ()=> {}
 });
 
-export const DataProvider: React.FC<PropsWithChildren> = ({children}) => {
+export const DataProvider: React.FC<PropsWithChildren> = ({children}: any) => {
   const [state, dispatch] = useReducer(dataReducer, initialState)
 
   const handleChangeCheckbox = (e: SyntheticEvent<Element, Event>, checked: boolean): void => {
     dispatch({type: HANDLE_CHANGE_CHECKBOX, payload: {target: e.target, checked}})
+    dispatch({type: HANDLE_CHANGE, payload: ""})
   }
   const handleChangeCity = (e: cityLang) => {
     dispatch({type: HANDLE_CHANGE_CITY, payload: e})
+    dispatch({type: HANDLE_CHANGE, payload: ""})
   }
   const handleChangeLang = (e: cityLang) => {
     dispatch({type: HANDLE_CHANGE_LANG, payload: e})
+    dispatch({type: HANDLE_CHANGE, payload: ""})
   }
   const handleChangeByWho = (e: []) => {
     dispatch({type: HANDLE_CHANGE_BYWHO, payload: e})
+    dispatch({type: HANDLE_CHANGE, payload: ""})
   }
   const handleData = (data: data) => {
     dispatch({type: HANDLE_DATA, payload: data})

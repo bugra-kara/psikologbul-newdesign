@@ -1,5 +1,4 @@
 import React from 'react'
-import Logo from '../assets/images/logo.svg'
 import {RxHamburgerMenu} from 'react-icons/rx'
 import { BsTwitter, BsReddit, BsFacebook } from 'react-icons/bs'
 import { RiWhatsappLine } from 'react-icons/ri'
@@ -16,7 +15,7 @@ function Navbar() {
             <RxHamburgerMenu className=''/>
           </button>
           <div className='col-span-2 flex place-items-center py-3'>
-            <Link to="/"><img src={Logo} alt="psikologbul.io logo" className='h-12'/></Link>
+            <Link to="/"><img src={"/logo.svg"} alt="psikologbul.io logo" className='h-12'/></Link>
           </div>
           <div className='col-span-2 justify-center sm:justify-end sm:w-full sm:space-x-5 flex place-items-center py-3'>
             <div className='hidden sm:flex flex-row justify-center place-items-center space-x-5'>
@@ -25,7 +24,7 @@ function Navbar() {
               <BsFacebook className='h-5 w-5'/>
               <BsReddit className='h-5 w-5'/>
             </div>
-            <div className='hidden sm:block'>
+            <div className='hidden'>
               <SelectLang />
             </div>
             <Link to="/iletisim" className='bg-contact px-3 text-head py-2 rounded-md font-bl'>Başvuru Yap</Link>
@@ -35,7 +34,7 @@ function Navbar() {
           menu 
           ?
           <div className='flex flex-col space-y-5 w-full sm:hidden py-3'>
-            <div className='flex justify-center w-full'>
+            <div className='hidden justify-center w-full'>
                 <SelectLang />
             </div>
             <div className='flex flex-row justify-center place-items-center space-x-7 text-white'>

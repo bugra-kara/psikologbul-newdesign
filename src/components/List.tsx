@@ -8,18 +8,17 @@ import {BsPhone} from 'react-icons/bs'
 import { useDataContext } from '../context/DataContext'
 function List(): JSX.Element {
   const {state} = useDataContext()
-  console.log(state.selectedData)
   if(state.selectedData.length === 0){
    return (
     <div className='px-4 pt-8 sm:pt-24 md:pt-12 lg:pt-8 xl:pt-4 pb-8'>
       <div className='container mx-auto w-full flex flex-col'>
-        <span>Loading</span>
+        <span>Loading...</span>
       </div>
     </div>
     )
   }
   return (
-    <div className='px-4 pt-8 sm:pt-24 md:pt-12 lg:pt-8 xl:pt-4 pb-8'>
+    <div className='px-4 pt-8 sm:pt-24 md:pt-18 lg:pt-8 xl:pt-4 pb-8'>
       <div className='container mx-auto w-full flex flex-col'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-2 h-fit'>
         {
@@ -52,7 +51,7 @@ function List(): JSX.Element {
                 </div>
                 <div className='flex flex-row space-x-2'>
                   {
-                  item?.cevrimici ? <div className='flex flex-row space-x-1 bg-yuzyuze justify-center place-items-center px-3 py-1 rounded-sm'>
+                  item?.yuzyuze ? <div className='flex flex-row space-x-1 bg-yuzyuze justify-center place-items-center px-3 py-1 rounded-sm'>
                   <span>
                     <HiOutlineUsers />
                   </span>
@@ -62,7 +61,7 @@ function List(): JSX.Element {
                 </div> : ""
                   }
                   {
-                  item?.yuzyuze ? <div className='flex flex-row space-x-1 bg-cevrimici justify-center place-items-center px-3 py-1 rounded-sm'>
+                  item?.cevrimici ? <div className='flex flex-row space-x-1 bg-cevrimici justify-center place-items-center px-3 py-1 rounded-sm'>
                   <span>
                     <AiOutlineVideoCamera/>
                   </span>
@@ -82,13 +81,13 @@ function List(): JSX.Element {
                   <div className='flex flex-row space-x-1'>
                     {/* son index ise nokta koydurtma */}
                     {
-                    item.title !== null ? item.title!.map((e,index)=>{ return index < (item.title?.length! - 1) ? <span>{e} •</span> : <span>{e}</span>}) : ""
+                    item.title !== null ? item.title!.map((e,index)=>{ return index < (item.title?.length! - 1) ? <span key={index}>{e} •</span> : <span key={index}>{e}</span>}) : ""
                     }
                   </div>
                 </div>
                 <hr className='border-dotted'/>
                 {
-                item.bilgi !== null || item.bilgi !== undefined || item.bilgi !== ""
+                item.bilgi !== null && item.bilgi !== undefined && item.bilgi !== ""
                 ? <><div className='flex flex-col space-y-4'>
                   <span className='text-head font-semibold'>
                     Bilgi
@@ -142,7 +141,7 @@ function List(): JSX.Element {
                     : ""
                     }
                     {
-                    item.telefon !== null && item.telefon !== undefined && item.telefon !== ""
+                    item.telefon !== null && item.telefon !== undefined && item.telefon !== "" && item.telefon !== "+90"
                     ? <div className='flex flex-row space-x-2 place-items-center'>
                         <span className='flex justify-center place-items-center p-1.5 rounded-md bg-icon'>
                           <BsPhone className='h-5 w-5' />

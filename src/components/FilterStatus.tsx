@@ -5,7 +5,7 @@ import { useDataContext } from '../context/DataContext';
 function FilterStatus() {
  const { handleChangeCheckbox, state } = useDataContext()
   return (
-   <div className='flex flex-col col-span-1 space-y-6 sm:space-y-3 md:border-r-2 pr-1'>
+   <div className='flex flex-col col-span-2 space-y-6 sm:space-y-3 md:border-r-2 pr-1'>
      <span className='font-semibold text-filterHead'>Görüşme Tercihi</span>
      <div className='flex flex-row sm:flex-col lg:flex-row sm:space-y-2 lg:space-y-0 justify-between w-full'>
        <span className='flex place-items-center space-x-1 w-full'>

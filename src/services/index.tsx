@@ -1,30 +1,9 @@
-import { supabase } from './supabaseClient'
+import axios from "axios"
+
 export const dataLoader = async () => {
  try {
-  const userInfos = await supabase.from('user_info')
-  .select(
-   `
-   id,
-   name,
-   cinsiyet,
-   unvan,
-   email,
-   telefon,
-   cevrimici,
-   yuzyuze,
-   sehir,
-   form,
-   instagram,
-   bilgi,
-   doluluk,
-   title,
-   lang,
-   location,
-   website
-   `
-   )
-  .order('id', {ascending: true})
-  return {user: userInfos.data}
+  const response = await axios.get('https://api.psikologbul.io/content/contents')
+  return {user: response.data.data}
  } catch (error) {
   return error
  }
